@@ -31,8 +31,8 @@ def fetchLive():
             "team1": teamnames[0].text,
             "team2": teamnames[1].text
         })
-        
-    return ()
+
+    return(live)
 
 def fetchUpcoming():
 
@@ -70,7 +70,7 @@ def fetchUpcoming():
                 # Error handling for when there's a lack of team logo
                 try:                
                     event.append({
-                        "time": time.text,
+                        "time": time.text[1:-1],
                         "bestof": bestof,
                         "team1": teamnames[0].text[1:-1],
                         "team1logo": teamlogos[0],
@@ -81,9 +81,9 @@ def fetchUpcoming():
                 except:
                 # Present empty logos    
                     event.append({
-                        "time": time.text,
+                        "time": time.text[1:-1],
                         "bestof": bestof,
-                        "team1": teamnames[0].text[1:-1],
+                        "team1": teamnames[0].text,
                         "team1logo": 0,
                         "team2": teamnames[1].text,
                         "team2logo": 0,
@@ -101,5 +101,5 @@ def fetchUpcoming():
             pass
 
         upcoming.append(event)
-
-fetchLive()
+        
+    return(upcoming)
